@@ -12,5 +12,21 @@
       "id": 3,
       "task_name": "a little makeup"
     }
+  ],
+  "signupUsers": [
+    {
+      "fullName": "Katerina Dim",
+      "mobile": 6541548753,
+      "email": "ka@mail.com",
+      "password": "123456",
+      "id": 1
+    },
+    {
+      "fullName": "Kat D",
+      "mobile": 12345678,
+      "email": "kd@mail.com",
+      "password": "12345",
+      "id": 2
+    }
   ]
 }
