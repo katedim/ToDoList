@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Task } from 'src/app/model/task';
+import { AuthService } from 'src/app/service/auth.service';
 import { CrudService } from 'src/app/service/crud.service';
 
 @Component({
@@ -15,7 +17,7 @@ export class DashboardComponent implements OnInit{
   addTaskValue : string = '';
   editTaskValue: string = '';
 
-  constructor(private crudService : CrudService) {
+  constructor(private crudService : CrudService, private authService: AuthService, private router: Router) {
 
   }
   ngOnInit(): void {
@@ -63,6 +65,11 @@ export class DashboardComponent implements OnInit{
     call(etask: Task) {
       this.taskObj = etask;
       this.editTaskValue = etask.task_name;
+    }
+
+    logout(){
+      this.authService.logout();
+      this.router.navigate([""]);
     }
 
 }

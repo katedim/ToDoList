@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   public loginForm!: FormGroup;
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router){}
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private authService: AuthService){}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
       if (user) {
         alert("Login Success");
         this.loginForm.reset();
+        this.authService.login();
         this.router.navigate(["dashboard"]);
       }
       else{
